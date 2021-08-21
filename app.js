@@ -1,7 +1,7 @@
 const express=require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
-const sendMail = require('./mail');
+const sendMail = require('./mail.js');
 const log = console.log;
 const path = require('path');
 const router = express.Router();
@@ -41,6 +41,10 @@ app.post('/email', (req, res) => {
 
 app.get("/",function(req, res){
   res.sendFile(__dirname +"/index.html");
+});
+
+app.post("/underConstruction.html",function(req, res){
+  res.sendFile(__dirname +"/underConstruction.html");
 });
 
 app.listen(process.env.PORT || 3000, function (){
